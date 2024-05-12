@@ -1,7 +1,7 @@
 
 # Multi-Level Marketing API
 
-In this project, I created the multilevel marketing API in which we can add a User along with its parent and then distribute the earnings.
+In this project i create the multilevel marketing API in which we can add user along with its parent and then distribute the earnings.
 
 
 
@@ -24,6 +24,19 @@ In this project, I created the multilevel marketing API in which we can add a Us
   GET /user/
 ```
 
+#### Get Distribute Earnings
+
+```http
+Get /user/distribute pass the user id and earnings in query params
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+|   `userId`  | `string` | **Required**. User Id (Obtain it while fetching through get API)|
+|   `earnings`  | `string` | **Required** Amount|
+
+
+
 #### Distribute Earnings
 
 ```http
@@ -32,21 +45,10 @@ POST /user/distribute
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-|   `userId` (Query Params) | `string` | **Required**. User Id (Obtain it while fetching through get API)|
-|   `earnings` (in body) | `string` | **Required** Amount|
+|   `userId`  | `string` | **Required**. User Id (Obtain it while fetching through get API)|
+|   `earnings`  | `string` | **Required** Amount|
 
-#### Get Distribute Earnings
-
-```http
-GET /user/distribute  
-```
-
-| Parameter | Type     | Description                       | Passed In |
-| :-------- | :------- | :-------------------------------- | |
-|   `userId` | `string` | **Required**. User Id (Obtain it while fetching through get API)| `Query Params` |
-|   `earnings` | `string` | **Required** Amount| `Query Params` |
-
-#### How To Run The API
+#### How To Run
 
 - #### npm run dev
 
@@ -55,10 +57,13 @@ GET /user/distribute
 
 ## Documentation
 
-As it is a multilevel marketing api 
-- If a user is added without a parent, then it means that is an independent user.
+As it is multilevel marketing api 
+- If a user is added without a parent, then it means that user is an independent user.
 - If a user is added with a parent but that parent doesn't have any ancestors, then the earnings of this user are distributed only to their parent, which is 20%.
-- So now if I add user3 with the parent user2 and the parent of user2 is already added user1. So now distribution occurs like the user2 gets 20% and user1 gets 10% because user2 is parent and user1 is grandparent.
-- so like this, all flow will happen
-- so if there are conditions of total level 8 means any user has only 8 ancestors.
+- So now if i add user3 with the parent user2 and the parent of user2 is already added user1. So now distribution occurs like the user2 gets 20% and user1 gets 10% because user2 is parent and user1 is grand parent.
+- so like this all flow will happen
+- so if there are conditon of total level 8 means any user has only 8 ancestors .
+
+
+
 
