@@ -83,7 +83,7 @@ exports.distributeEarnings = async(userId,earnings)=>{
     const ancestorUpdatingData = [{
         updateOne: {
             filter: { _id:userId,isDeleted : false },
-            update: { $set: { earnings : userEarning + earnings} }
+            update: { $set: { earnings : Number(userEarning) + Number(earnings)} }
          }
     }]
 
